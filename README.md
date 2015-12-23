@@ -20,11 +20,10 @@ ROMP/L-ROMP needs to a special Huffman table for each defined context. Therefore
    $ cd training
    $ python training_romp.py TRAIN_IMAGES TABLES
    ```
-  - For L-ROMP:
+    - For L-ROMP, using *training_lromp.py* instead, with two additional parameters, the rate threshold and the perceptual threshold, in float:
    ```
    $ python training_lromp.py TRAIN_IMAGES TABLES RATE_THRESHOLD PERCEPTUAL_THRESHOLD
    ```
-     - L-ROMP's training takes two additional parameters, the rate threshold and the perceptual threshold, in float.
  
 2. Compress
   - for ROMP: /opt/libjpeg-turbo/bin/jpegtran -encode TABLES INPUT_IMAGE ROMP_IMAGE
