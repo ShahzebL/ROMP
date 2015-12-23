@@ -1,7 +1,7 @@
 # Introduction
 ROMP/L-ROMP are novel techniques that compress JPEG images. ROMP/L-ROMP defines many more contexts (cases) than standard JPEG and compress each context individually for better compressibility.
 
-For more detailed information, we refer interested users to our published [ROMP paper](https://fix_link_later)
+For more detailed information, we refer interested users to our [paper](https://fix_link_later)
 
 # Install
 ```
