@@ -15,7 +15,7 @@ ROMP/L-ROMP needs to a special Huffman table for each defined context. Therefore
 
 1. Training step:
   - Prepare a set of training images, put them into one folder named, e.g., TRAIN_IMAGES;
-  - run below commands, specify an output folder that contains generated tables (TABLES)
+  - Run below commands, specify an output folder that contains generated tables (TABLES)
    ```
    $ cd training
    $ python training_romp.py TRAIN_IMAGES TABLES
