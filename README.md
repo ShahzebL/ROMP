@@ -16,14 +16,12 @@ ROMP/L-ROMP needs to a special Huffman table for each defined context. Therefore
 1. Training step:
   - Prepare a set of training images, put them into one folder named, e.g., TRAIN_IMAGES
   - For ROMP:
-  - 
      ```
      $ cd training
      $ python training_romp.py TRAIN_IMAGES TABLES
      ```
      - TABLES is the name of the folder that will be generated with trained tables
   - For L-ROMP:
-  - 
      ```
      $ python training_lromp.py TRAIN_IMAGES TABLES RATE_THRESHOLD PERCEPTUAL_THRESHOLD
      ```
