@@ -1,5 +1,5 @@
 # Introduction
-ROMP/L-ROMP are novel techniques that compresses JPEG images. ROMP/L-ROMP defines finer-grained contexts than standard JPEG and compress each context individually.
+ROMP/L-ROMP are novel techniques that compress JPEG images. ROMP/L-ROMP defines many more contexts (cases) than standard JPEG and compress each context individually for better compressibility.
 
 # Install
 ```
@@ -37,6 +37,11 @@ ROMP/L-ROMP needs to a special Huffman table for each defined context. Therefore
    ```
 
 3. Decompress
-  - for ROMP: /opt/libjpeg-turbo/bin/jpegtran -decode TABLES ROMP_IMAGE OUTPUT_JPEG_IMAGE
-    - TABLES is the folder contains trained tables, ROMP_IMAGE is the compressed image, OUTPUT_JPEG_IMAGE is the decompressed JPEG image
-  - for L-ROMP: /opt/libjpeg-turbo-lossy/bin/jpegtran -decode TABLES ROMP_IMAGE OUTPUT_JPEG_IMAGE
+  - For decompression, you need to specify the folder contains the tables you used to compress image, TABLES, and the corresponding compressed image, ROMP_IMAGE; indicate the name you want to name the output decompressed JPEG image in OUTPUT_JPEG_IMAGE:
+   ```
+   /opt/libjpeg-turbo/bin/jpegtran -decode TABLES ROMP_IMAGE OUTPUT_JPEG_IMAGE
+   ```
+  - for L-ROMP: 
+   ```
+  opt/libjpeg-turbo-lossy/bin/jpegtran -decode TABLES ROMP_IMAGE OUTPUT_JPEG_IMAGE
+   ```
