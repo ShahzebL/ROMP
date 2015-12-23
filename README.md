@@ -9,11 +9,11 @@ ROMP/L-ROMP are novel techniques that compresses JPEG images. ROMP/L-ROMP define
 
 # Usage
 ROMP/L-ROMP needs to a special Huffman table for each defined context. Therefore, to use ROMP/L-ROMP, you need to train these tables first, using a set of training images (training step). ROMP/L-ROMP learn statistics from these training images, and then use these trained tables to compress other images.
-'''
+```
 a
 b
 c
-'''
+```
 
 1. Training step:
   - Prepare a set of training images, put them into one folder named, e.g., TRAIN_IMAGES
