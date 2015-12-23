@@ -26,11 +26,10 @@ ROMP/L-ROMP needs to a special Huffman table for each defined context. Therefore
   ```
  
 2. Compress
-  - Assume the file name of the image you want to compress is INPUT_IMAGE, do:
+  - Assume the filename of the JPEG image you want to compress is INPUT_IMAGE, and you want to name the output compressed image ROMP_IMAGE:
    ```
    /opt/libjpeg-turbo/bin/jpegtran -encode TABLES INPUT_IMAGE ROMP_IMAGE
    ```
-  - ROMP_IMAGE is the compressed image
   - for L-ROMP, specify those two additional parameters you used for training in float:
    ```
    /opt/libjpeg-turbo-lossy/bin/jpegtran -encode TABLES RATE_THESHOLD PERCEPTUAL_THRESHOLD INPUT_IMAGE ROMP_IMAGE 
@@ -41,7 +40,7 @@ ROMP/L-ROMP needs to a special Huffman table for each defined context. Therefore
    ```
    /opt/libjpeg-turbo/bin/jpegtran -decode TABLES ROMP_IMAGE OUTPUT_JPEG_IMAGE
    ```
-  - for L-ROMP: 
+  - L-ROMP's decompression is same to that of ROMP, but to be consistent, you can use L-ROMP's executable:
    ```
   opt/libjpeg-turbo-lossy/bin/jpegtran -decode TABLES ROMP_IMAGE OUTPUT_JPEG_IMAGE
    ```
