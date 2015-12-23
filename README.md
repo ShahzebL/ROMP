@@ -2,10 +2,12 @@
 ROMP/L-ROMP are novel techniques that compresses JPEG images. ROMP/L-ROMP defines finer-grained contexts than standard JPEG and compress each context individually.
 
 # Install
+```
  - $ cd romp (or cd lromp for L-ROMP)
  - $ ./configure
  - $ sudo make install
    - Note that, ROMP executable will be installed to /opt/libjpeg-turbo, and L-ROMP will be installed to /opt/libjpeg-turbo-lossy
+```
 
 # Usage
 ROMP/L-ROMP needs to a special Huffman table for each defined context. Therefore, to use ROMP/L-ROMP, you need to train these tables first, using a set of training images (training step). ROMP/L-ROMP learn statistics from these training images, and then use these trained tables to compress other images.
