@@ -26,11 +26,16 @@ ROMP/L-ROMP needs to a special Huffman table for each defined context. Therefore
    ```
  
 2. Compress
-  - for ROMP: /opt/libjpeg-turbo/bin/jpegtran -encode TABLES INPUT_IMAGE ROMP_IMAGE
-    - TABLES is the folder contains trained tables, INPUT_IMAGE is the JPEG image you want to compress, ROMP_IMAGE is the compressed image
-  - for L-ROMP: /opt/libjpeg-turbo-lossy/bin/jpegtran -encode TABLES RATE_THESHOLD PERCEPTUAL_THRESHOLD INPUT_IMAGE ROMP_IMAGE 
-    - L-ROMP's compressing takes two additional parameters, the rate threshold and the perceptual threshold, in float.
-    
+  - Assume the file name of the image you want to compress is INPUT_IMAGE, do:
+   ```
+   /opt/libjpeg-turbo/bin/jpegtran -encode TABLES INPUT_IMAGE ROMP_IMAGE
+   ```
+  - ROMP_IMAGE is the compressed image
+  - for L-ROMP, specify those two additional parameters you used for training in float:
+   ```
+   /opt/libjpeg-turbo-lossy/bin/jpegtran -encode TABLES RATE_THESHOLD PERCEPTUAL_THRESHOLD INPUT_IMAGE ROMP_IMAGE 
+   ```
+
 3. Decompress
   - for ROMP: /opt/libjpeg-turbo/bin/jpegtran -decode TABLES ROMP_IMAGE OUTPUT_JPEG_IMAGE
     - TABLES is the folder contains trained tables, ROMP_IMAGE is the compressed image, OUTPUT_JPEG_IMAGE is the decompressed JPEG image
