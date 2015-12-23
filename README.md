@@ -14,7 +14,8 @@ By default, ROMP will be installed to /opt/libjpeg-turbo, and L-ROMP will be ins
 ROMP/L-ROMP needs to a special Huffman table for each defined context. Therefore, to use ROMP/L-ROMP, you need to train these tables first, using a set of training images (training step). ROMP/L-ROMP learn statistics from these training images, and then use these trained tables to compress other images.
 
 1. Training step:
-  - Prepare a set of training images, put them into one folder named, e.g., TRAIN_IMAGES; run below commands, specify an output folder that contains generated tables (TABLES)
+  - Prepare a set of training images, put them into one folder named, e.g., TRAIN_IMAGES;
+  - run below commands, specify an output folder that contains generated tables (TABLES)
    ```
    $ cd training
    $ python training_romp.py TRAIN_IMAGES TABLES
