@@ -2,7 +2,7 @@
 /* Version ID for the JPEG library.
  * Might be useful for tests like "#if JPEG_LIB_VERSION >= 60".
  */
-#define JPEG_LIB_VERSION 62
+#define JPEG_LIB_VERSION 80
 
 /* libjpeg-turbo version */
 #define LIBJPEG_TURBO_VERSION 1.3.90
@@ -57,7 +57,7 @@
 /* #undef RIGHT_SHIFT_IS_UNSIGNED */
 
 /* Use accelerated SIMD routines. */
-#define WITH_SIMD 1
+/* #undef WITH_SIMD */
 
 /* Define to 1 if type `char' is unsigned and you are not using gcc.  */
 #ifndef __CHAR_UNSIGNED__
@@ -69,3 +69,4 @@
 
 /* Define to `unsigned int' if <sys/types.h> does not define. */
 /* #undef size_t */
+#define TWO_FILE_COMMANDLINE

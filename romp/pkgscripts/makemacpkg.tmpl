@@ -23,15 +23,15 @@ usage()
 
 PACKAGE_NAME=libjpeg-turbo
 VERSION=1.3.90
-BUILD=20151222
-SRCDIR=/home/xing/research/ROMP/romp
-BUILDDIR32=/home/xing/research/ROMP/romp/osxx86
+BUILD=20230930
+SRCDIR=/Users/shahzeblakhani/Downloads/ROMP/romp
+BUILDDIR32=/Users/shahzeblakhani/Downloads/ROMP/romp/osxx86
 BUILD32=0
-BUILDDIRARMV6=/home/xing/research/ROMP/romp/iosarmv6
+BUILDDIRARMV6=/Users/shahzeblakhani/Downloads/ROMP/romp/iosarmv6
 BUILDARMV6=0
-BUILDDIRARMV7=/home/xing/research/ROMP/romp/iosarmv7
+BUILDDIRARMV7=/Users/shahzeblakhani/Downloads/ROMP/romp/iosarmv7
 BUILDARMV7=0
-BUILDDIRARMV7S=/home/xing/research/ROMP/romp/iosarmv7s
+BUILDDIRARMV7S=/Users/shahzeblakhani/Downloads/ROMP/romp/iosarmv7s
 BUILDARMV7S=0
 WITH_JAVA=0
 
@@ -108,18 +108,18 @@ if [ $BUILD32 = 1 ]; then
 	pushd $BUILDDIR32
 	make install DESTDIR=$TMPDIR/dist.x86
 	popd
-	if [ ! -h $TMPDIR/dist.x86/$LIBDIR/libjpeg.62.dylib -a \
-		! -h $PKGROOT/$LIBDIR/libjpeg.62.dylib ]; then
+	if [ ! -h $TMPDIR/dist.x86/$LIBDIR/libjpeg.8.dylib -a \
+		! -h $PKGROOT/$LIBDIR/libjpeg.8.dylib ]; then
 		lipo -create \
-			-arch i386 $TMPDIR/dist.x86/$LIBDIR/libjpeg.62.dylib \
-			-arch x86_64 $PKGROOT/$LIBDIR/libjpeg.62.dylib \
-			-output $PKGROOT/$LIBDIR/libjpeg.62.dylib
-	elif [ ! -h $TMPDIR/dist.x86/$LIBDIR/libjpeg.62.0.0.dylib -a \
-		! -h $PKGROOT/$LIBDIR/libjpeg.62.0.0.dylib ]; then
+			-arch i386 $TMPDIR/dist.x86/$LIBDIR/libjpeg.8.dylib \
+			-arch x86_64 $PKGROOT/$LIBDIR/libjpeg.8.dylib \
+			-output $PKGROOT/$LIBDIR/libjpeg.8.dylib
+	elif [ ! -h $TMPDIR/dist.x86/$LIBDIR/libjpeg.8.0.2.dylib -a \
+		! -h $PKGROOT/$LIBDIR/libjpeg.8.0.2.dylib ]; then
 		lipo -create \
-			-arch i386 $TMPDIR/dist.x86/$LIBDIR/libjpeg.62.0.0.dylib \
-			-arch x86_64 $PKGROOT/$LIBDIR/libjpeg.62.0.0.dylib \
-			-output $PKGROOT/$LIBDIR/libjpeg.62.0.0.dylib
+			-arch i386 $TMPDIR/dist.x86/$LIBDIR/libjpeg.8.0.2.dylib \
+			-arch x86_64 $PKGROOT/$LIBDIR/libjpeg.8.0.2.dylib \
+			-output $PKGROOT/$LIBDIR/libjpeg.8.0.2.dylib
 	fi
 	lipo -create \
 		-arch i386 $TMPDIR/dist.x86/$LIBDIR/libjpeg.a \
@@ -229,7 +229,7 @@ if [ $BUILDARMV7S = 1 ]; then
 		-output $PKGROOT/$LIBDIR/libturbojpeg.a
 fi
 
-install_name_tool -id $LIBDIR/libjpeg.62.dylib $PKGROOT/$LIBDIR/libjpeg.62.dylib
+install_name_tool -id $LIBDIR/libjpeg.8.dylib $PKGROOT/$LIBDIR/libjpeg.8.dylib
 install_name_tool -id $LIBDIR/libturbojpeg.0.dylib $PKGROOT/$LIBDIR/libturbojpeg.0.dylib
 
 if [ $WITH_JAVA = 1 ]; then

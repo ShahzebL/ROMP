@@ -32,7 +32,7 @@ Vendor: The libjpeg-turbo Project
 URL: http://www.libjpeg-turbo.org
 Group: System Environment/Libraries
 #-->Source0: http://prdownloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-%{version}.tar.gz
-Release: 20151222
+Release: 20230930
 License: BSD-style
 BuildRoot: %{_blddir}/%{name}-buildroot-%{version}-%{release}
 Prereq: /sbin/ldconfig
@@ -70,8 +70,8 @@ broader range of users and developers.
 #-->%build
 #-->./configure prefix=%{_prefix} bindir=%{_bindir} datadir=%{_datadir} \
 #-->	docdir=%{_docdir} includedir=%{_includedir} libdir=%{_libdir} \
-#-->	mandir=%{_mandir} JPEG_LIB_VERSION=62 \
-#-->	SO_MAJOR_VERSION=62 SO_MINOR_VERSION=0 \
+#-->	mandir=%{_mandir} JPEG_LIB_VERSION=80 \
+#-->	SO_MAJOR_VERSION=8 SO_MINOR_VERSION=2 \
 #-->	--with-pic 
 #-->make DESTDIR=$RPM_BUILD_ROOT
 
@@ -120,8 +120,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/rdjpgcom
 %{_bindir}/wrjpgcom
 %dir %{_libdir}
-%{_libdir}/libjpeg.so.62.1.0
-%{_libdir}/libjpeg.so.62
+%{_libdir}/libjpeg.so.8.2.2
+%{_libdir}/libjpeg.so.8
 %{_libdir}/libjpeg.so
 %{_libdir}/libjpeg.a
 %{_libdir}/libturbojpeg.so.0.1.0

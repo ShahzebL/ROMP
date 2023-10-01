@@ -5,7 +5,7 @@
 /* #undef BITS_IN_JSAMPLE */
 
 /* libjpeg-turbo build number */
-#define BUILD "20151222"
+#define BUILD "20230930"
 
 /* Support arithmetic encoding */
 #define C_ARITH_CODING_SUPPORTED 1
@@ -71,7 +71,7 @@
 #define INLINE inline __attribute__((always_inline))
 
 /* libjpeg API version */
-#define JPEG_LIB_VERSION 62
+#define JPEG_LIB_VERSION 80
 
 /* libjpeg-turbo version */
 #define LIBJPEG_TURBO_VERSION 1.3.90
@@ -115,7 +115,7 @@
 /* #undef RIGHT_SHIFT_IS_UNSIGNED */
 
 /* The size of `long', as computed by sizeof. */
-#define SIZEOF_LONG 8
+/* #undef SIZEOF_LONG */
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
@@ -124,7 +124,7 @@
 #define VERSION "1.3.90"
 
 /* Use accelerated SIMD routines. */
-#define WITH_SIMD 1
+/* #undef WITH_SIMD */
 
 /* Define to 1 if type `char' is unsigned and you are not using gcc.  */
 #ifndef __CHAR_UNSIGNED__

@@ -27,7 +27,7 @@ pkglibdir = $(libdir)/libjpeg-turbo
 pkgincludedir = $(includedir)/libjpeg-turbo
 top_builddir = .
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
-INSTALL = /usr/bin/install -c
+INSTALL = /usr/local/bin/ginstall -c
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
 install_sh_SCRIPT = $(install_sh) -c
@@ -39,8 +39,8 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-build_triplet = x86_64-unknown-linux-gnu
-host_triplet = x86_64-unknown-linux-gnu
+build_triplet = arm-apple-darwin21.6.0
+host_triplet = arm-apple-darwin21.6.0
 am__append_1 = libturbojpeg.la
 am__append_2 = turbojpeg.h
 am__append_3 = jaricom.c
@@ -49,8 +49,8 @@ am__append_5 = jdarith.c
 #am__append_6 = turbojpeg-jni.c
 am__append_7 = $(VERSION_SCRIPT_FLAG)$(srcdir)/$(TJMAPFILE)
 am__append_8 = $(VERSION_SCRIPT_FLAG)libjpeg.map
-am__append_9 = simd
-#am__append_10 = jsimd_none.c
+#am__append_9 = simd
+am__append_10 = jsimd_none.c
 bin_PROGRAMS = cjpeg$(EXEEXT) djpeg$(EXEEXT) jpegtran$(EXEEXT) \
 	rdjpgcom$(EXEEXT) wrjpgcom$(EXEEXT) $(am__EXEEXT_1)
 noinst_PROGRAMS = jcstest$(EXEEXT) $(am__EXEEXT_2)
@@ -99,7 +99,7 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)" \
 	"$(DESTDIR)$(includedir)"
 libLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(lib_LTLIBRARIES)
-libjpeg_la_DEPENDENCIES = simd/libsimd.la
+#libjpeg_la_DEPENDENCIES = simd/libsimd.la
 am__libjpeg_la_SOURCES_DIST = jchuff.h jdct.h jdhuff.h jerror.h \
 	jinclude.h jmemsys.h jmorecfg.h jpegint.h jpeglib.h jversion.h \
 	jsimd.h jsimddct.h jpegcomp.h jpeg_nbits_table.h jcapimin.c \
@@ -116,7 +116,7 @@ am__objects_1 =
 am__objects_2 = jaricom.lo
 am__objects_3 = jcarith.lo
 am__objects_4 = jdarith.lo
-#am__objects_5 = jsimd_none.lo
+am__objects_5 = jsimd_none.lo
 am_libjpeg_la_OBJECTS = $(am__objects_1) jcapimin.lo jcapistd.lo \
 	jccoefct.lo jccolor.lo jcdctmgr.lo jchuff.lo jcinit.lo \
 	jcmainct.lo jcmarker.lo jcmaster.lo jcomapi.lo jcparam.lo \
@@ -129,7 +129,7 @@ am_libjpeg_la_OBJECTS = $(am__objects_1) jcapimin.lo jcapistd.lo \
 	jquant2.lo jutils.lo jmemmgr.lo jmemnobs.lo $(am__objects_2) \
 	$(am__objects_3) $(am__objects_4) $(am__objects_5)
 libjpeg_la_OBJECTS = $(am_libjpeg_la_OBJECTS)
-libturbojpeg_la_DEPENDENCIES = simd/libsimd.la
+#libturbojpeg_la_DEPENDENCIES = simd/libsimd.la
 am__libturbojpeg_la_SOURCES_DIST = jchuff.h jdct.h jdhuff.h jerror.h \
 	jinclude.h jmemsys.h jmorecfg.h jpegint.h jpeglib.h jversion.h \
 	jsimd.h jsimddct.h jpegcomp.h jpeg_nbits_table.h jcapimin.c \
@@ -147,7 +147,7 @@ am__libturbojpeg_la_SOURCES_DIST = jchuff.h jdct.h jdhuff.h jerror.h \
 am__objects_6 = libturbojpeg_la-jaricom.lo
 am__objects_7 = libturbojpeg_la-jcarith.lo
 am__objects_8 = libturbojpeg_la-jdarith.lo
-#am__objects_9 = libturbojpeg_la-jsimd_none.lo
+am__objects_9 = libturbojpeg_la-jsimd_none.lo
 am__objects_10 = $(am__objects_1) libturbojpeg_la-jcapimin.lo \
 	libturbojpeg_la-jcapistd.lo libturbojpeg_la-jccoefct.lo \
 	libturbojpeg_la-jccolor.lo libturbojpeg_la-jcdctmgr.lo \
@@ -284,16 +284,16 @@ DIST_ARCHIVES = $(distdir).tar.gz $(distdir).tar.bz2
 GZIP_ENV = --best
 distuninstallcheck_listfiles = find . -type f -print
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/xing/research/ROMP/romp/missing --run aclocal-1.9
+ACLOCAL = ${SHELL} /Users/shahzeblakhani/Downloads/ROMP/romp/missing --run aclocal-1.9
 AMDEP_FALSE = #
 AMDEP_TRUE = 
-AMTAR = ${SHELL} /home/xing/research/ROMP/romp/missing --run tar
+AMTAR = ${SHELL} /Users/shahzeblakhani/Downloads/ROMP/romp/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /home/xing/research/ROMP/romp/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/xing/research/ROMP/romp/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/xing/research/ROMP/romp/missing --run automake-1.9
-AWK = gawk
-BUILD = 20151222
+AUTOCONF = ${SHELL} /Users/shahzeblakhani/Downloads/ROMP/romp/missing --run autoconf
+AUTOHEADER = ${SHELL} /Users/shahzeblakhani/Downloads/ROMP/romp/missing --run autoheader
+AUTOMAKE = ${SHELL} /Users/shahzeblakhani/Downloads/ROMP/romp/missing --run automake-1.9
+AWK = awk
+BUILD = 20230930
 CC = gcc
 CCAS = gcc
 CCASFLAGS = -g -O2
@@ -306,17 +306,17 @@ CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2
 CYGPATH_W = echo
-DEBARCH = amd64
+DEBARCH = 
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
-ECHO = echo
-ECHO_C = 
-ECHO_N = -n
+ECHO = /bin/echo
+ECHO_C = \c
+ECHO_N = 
 ECHO_T = 
-EGREP = /bin/grep -E
+EGREP = /usr/bin/grep -E
 EXEEXT = 
-F77 = 
-FFLAGS = 
+F77 = gfortran
+FFLAGS = -g -O2
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
@@ -328,19 +328,19 @@ JAVACFLAGS =
 JAVA_RPM_CONTENTS_1 = 
 JAVA_RPM_CONTENTS_2 = 
 JNI_CFLAGS = 
-JPEG_LIB_VERSION = 62
-JPEG_LIB_VERSION_DECIMAL = 6.2
+JPEG_LIB_VERSION = 80
+JPEG_LIB_VERSION_DECIMAL = 8.0
 LDFLAGS = 
 LIBOBJS = 
 LIBS = 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
-LIBTOOL_CURRENT = 63
+LIBTOOL_CURRENT = 10
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/xing/research/ROMP/romp/missing --run makeinfo
+MAKEINFO = ${SHELL} /Users/shahzeblakhani/Downloads/ROMP/romp/missing --run makeinfo
 MEM_SRCDST_FUNCTIONS = global:  jpeg_mem_dest;  jpeg_mem_src;
-NAFLAGS = -felf64 -DELF -D__x86_64__
-NASM = nasm
+NAFLAGS = 
+NASM = 
 OBJEXT = o
 PACKAGE = libjpeg-turbo
 PACKAGE_BUGREPORT = 
@@ -351,10 +351,10 @@ PACKAGE_VERSION = 1.3.90
 PATH_SEPARATOR = :
 PKGNAME = libjpeg-turbo
 RANLIB = ranlib
-RPMARCH = x86_64
+RPMARCH = 
 RPM_CONFIG_ARGS = 
 SET_MAKE = 
-SHELL = /bin/bash
+SHELL = /bin/sh
 SIMD_ARM_64_FALSE = 
 SIMD_ARM_64_TRUE = #
 SIMD_ARM_FALSE = 
@@ -363,15 +363,15 @@ SIMD_I386_FALSE =
 SIMD_I386_TRUE = #
 SIMD_MIPS_FALSE = 
 SIMD_MIPS_TRUE = #
-SIMD_X86_64_FALSE = #
-SIMD_X86_64_TRUE = 
-SO_AGE = 1
-SO_MAJOR_VERSION = 62
-SO_MINOR_VERSION = 0
+SIMD_X86_64_FALSE = 
+SIMD_X86_64_TRUE = #
+SO_AGE = 2
+SO_MAJOR_VERSION = 8
+SO_MINOR_VERSION = 2
 STRIP = strip
 VERSION = 1.3.90
 VERSION_SCRIPT_FALSE = #
-VERSION_SCRIPT_FLAG = -Wl,--version-script,
+VERSION_SCRIPT_FLAG = -Wl,-M,
 VERSION_SCRIPT_TRUE = 
 WITH_12BIT_FALSE = 
 WITH_12BIT_TRUE = #
@@ -384,18 +384,18 @@ WITH_ARITH_TRUE =
 WITH_JAVA = 0
 WITH_JAVA_FALSE = 
 WITH_JAVA_TRUE = #
-WITH_SIMD_FALSE = #
-WITH_SIMD_TRUE = 
-WITH_SSE_FLOAT_DCT_FALSE = #
-WITH_SSE_FLOAT_DCT_TRUE = 
+WITH_SIMD_FALSE = 
+WITH_SIMD_TRUE = #
+WITH_SSE_FLOAT_DCT_FALSE = 
+WITH_SSE_FLOAT_DCT_TRUE = #
 WITH_TURBOJPEG_FALSE = #
 WITH_TURBOJPEG_TRUE = 
-X86_64_FALSE = #
-X86_64_TRUE = 
+X86_64_FALSE = 
+X86_64_TRUE = #
 ac_ct_AR = @ac_ct_AR@
 ac_ct_CC = gcc
 ac_ct_CXX = g++
-ac_ct_F77 = 
+ac_ct_F77 = gfortran
 ac_ct_RANLIB = @ac_ct_RANLIB@
 ac_ct_STRIP = @ac_ct_STRIP@
 am__fastdepCC_FALSE = #
@@ -408,26 +408,26 @@ am__quote =
 am__tar = ${AMTAR} chof - "$$tardir"
 am__untar = ${AMTAR} xf -
 bindir = ${exec_prefix}/bin
-build = x86_64-unknown-linux-gnu
+build = arm-apple-darwin21.6.0
 build_alias = 
-build_cpu = x86_64
-build_os = linux-gnu
-build_vendor = unknown
+build_cpu = arm
+build_os = darwin21.6.0
+build_vendor = apple
 datadir = ${prefix}
 exec_prefix = ${prefix}
-host = x86_64-unknown-linux-gnu
+host = arm-apple-darwin21.6.0
 host_alias = 
-host_cpu = x86_64
-host_os = linux-gnu
-host_vendor = unknown
+host_cpu = arm
+host_os = darwin21.6.0
+host_vendor = apple
 includedir = ${prefix}/include
 infodir = ${prefix}/info
-install_sh = /home/xing/research/ROMP/romp/install-sh
-libdir = ${exec_prefix}/lib64
+install_sh = /Users/shahzeblakhani/Downloads/ROMP/romp/install-sh
+libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localstatedir = ${prefix}/var
 mandir = ${prefix}/man
-mkdir_p = mkdir -p --
+mkdir_p = $(install_sh) -d
 oldincludedir = /usr/include
 prefix = /opt/libjpeg-turbo
 program_transform_name = s,x,x,
@@ -465,8 +465,8 @@ libturbojpeg_la_SOURCES = $(libjpeg_la_SOURCES) \
 #libturbojpeg_la_CFLAGS = ${JNI_CFLAGS}
 TJMAPFILE = turbojpeg-mapfile
 #TJMAPFILE = turbojpeg-mapfile.jni
-libjpeg_la_LIBADD = simd/libsimd.la
-libturbojpeg_la_LIBADD = simd/libsimd.la
+#libjpeg_la_LIBADD = simd/libsimd.la
+#libturbojpeg_la_LIBADD = simd/libsimd.la
 tjbench_SOURCES = tjbench.c bmp.h bmp.c tjutil.h tjutil.c rdbmp.c rdppm.c \
 	wrbmp.c wrppm.c
 
@@ -530,12 +530,12 @@ MD5_PPM_GRAY_ISLOW_RGB = 116424ac07b79e5e801f00508eab48ec
 #MD5_PPM_GRAY_ISLOW_RGB = e96ee81c30a6ed422d466338bd3de65d
 MD5_JPEG_420S_IFAST_OPT = 388708217ac46273ca33086b22827ed8
 #MD5_JPEG_420S_IFAST_OPT = 7af8e60be4d9c227ec63ac9b6630855e
-#MD5_JPEG_3x2_FLOAT_PROG = 9bca803d2042bd1eb03819e2bf92b3e5
+MD5_JPEG_3x2_FLOAT_PROG = 9bca803d2042bd1eb03819e2bf92b3e5
 # See README-turbo.txt for more details on why this next bit is necessary.
-MD5_JPEG_3x2_FLOAT_PROG = 343e3f8caf8af5986ebaf0bdc13b5c71
+#MD5_JPEG_3x2_FLOAT_PROG = 343e3f8caf8af5986ebaf0bdc13b5c71
 #MD5_JPEG_3x2_FLOAT_PROG = a8c17daf77b457725ec929e215b603f8
-#MD5_PPM_3x2_FLOAT = f6bfab038438ed8f5522fbd33595dcdc
-MD5_PPM_3x2_FLOAT = 1a75f36e5904d6fc3a85a43da9ad89bb
+MD5_PPM_3x2_FLOAT = f6bfab038438ed8f5522fbd33595dcdc
+#MD5_PPM_3x2_FLOAT = 1a75f36e5904d6fc3a85a43da9ad89bb
 #MD5_PPM_3x2_FLOAT = 42876ab9e5c2f76a87d08db5fbd57956
 MD5_PPM_420M_ISLOW_2_1 = 9f9de8c0612f8d06869b960b05abf9c9
 #MD5_PPM_420M_ISLOW_2_1 = 4ca6be2a6f326ff9eaab63e70a8259c0
@@ -2424,14 +2424,14 @@ pkgscripts/makemacpkg: pkgscripts/makemacpkg.tmpl
 		sed s@%{__bindir}@$(bindir)@g | sed s@%{__docdir}@$(docdir)@g | \
 		sed s@%{__libdir}@$(libdir)@g > pkgscripts/makemacpkg
 
-udmg: all pkgscripts/makemacpkg pkgscripts/uninstall
-	sh pkgscripts/makemacpkg -build32 ${BUILDDIR32}
-
-iosdmg: all pkgscripts/makemacpkg pkgscripts/uninstall
-	sh pkgscripts/makemacpkg -build32 ${BUILDDIR32} -buildarmv6 ${BUILDDIRARMV6} -buildarmv7 ${BUILDDIRARMV7} -buildarmv7s ${BUILDDIRARMV7S}
+#udmg: all pkgscripts/makemacpkg pkgscripts/uninstall
+#	sh pkgscripts/makemacpkg -build32 ${BUILDDIR32}
 
 #iosdmg: all pkgscripts/makemacpkg pkgscripts/uninstall
-#	sh pkgscripts/makemacpkg -buildarmv6 ${BUILDDIRARMV6} -buildarmv7 ${BUILDDIRARMV7} -buildarmv7s ${BUILDDIRARMV7S}
+#	sh pkgscripts/makemacpkg -build32 ${BUILDDIR32} -buildarmv6 ${BUILDDIRARMV6} -buildarmv7 ${BUILDDIRARMV7} -buildarmv7s ${BUILDDIRARMV7S}
+
+iosdmg: all pkgscripts/makemacpkg pkgscripts/uninstall
+	sh pkgscripts/makemacpkg -buildarmv6 ${BUILDDIRARMV6} -buildarmv7 ${BUILDDIRARMV7} -buildarmv7s ${BUILDDIRARMV7S}
 
 dmg: all pkgscripts/makemacpkg pkgscripts/uninstall
 	sh pkgscripts/makemacpkg

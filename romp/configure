@@ -1652,7 +1652,7 @@ Some influential environment variables:
   F77         Fortran 77 compiler command
   FFLAGS      Fortran 77 compiler flags
   JPEG_LIB_VERSION
-              libjpeg API version (62, 70, or 80)
+              libjpeg API version (80, 70, or 80)
   SO_MAJOR_VERSION
               Major version of the libjpeg-turbo shared library (default is
               determined by the API version)
@@ -20227,7 +20227,7 @@ fi
     if test "x${with_jpeg7}" = "xyes"; then
       JPEG_LIB_VERSION=70
     else
-      JPEG_LIB_VERSION=62
+      JPEG_LIB_VERSION=80
     fi
   fi
 fi
@@ -20245,21 +20245,21 @@ _ACEOF
 
 if test "x$SO_MAJOR_VERSION" = "x"; then
   case "$JPEG_LIB_VERSION" in
-    62)  SO_MAJOR_VERSION=$JPEG_LIB_VERSION ;;
+    8)  SO_MAJOR_VERSION=$JPEG_LIB_VERSION ;;
     *)   SO_MAJOR_VERSION=`expr $JPEG_LIB_VERSION / 10` ;;
   esac
 fi
 if test "x$SO_MINOR_VERSION" = "x"; then
   case "$JPEG_LIB_VERSION" in
     80)  SO_MINOR_VERSION=2 ;;
-    *)   SO_MINOR_VERSION=0 ;;
+    *)   SO_MINOR_VERSION=2 ;;
   esac
 fi
 
 RPM_CONFIG_ARGS=
 
 # Memory source/destination managers
-SO_AGE=0
+SO_AGE=2
 MEM_SRCDST_FUNCTIONS=
 if test "x${with_jpeg8}" != "xyes"; then
   { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to include in-memory source/destination managers" >&5
@@ -20276,7 +20276,7 @@ $as_echo "yes" >&6; }
 
 $as_echo "#define MEM_SRCDST_SUPPORTED 1" >>confdefs.h
 
-    SO_AGE=1
+    SO_AGE=2
     MEM_SRCDST_FUNCTIONS="global:  jpeg_mem_dest;  jpeg_mem_src;";
   else
     { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5

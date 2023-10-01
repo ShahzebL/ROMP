@@ -24,7 +24,7 @@ pkglibdir = $(libdir)/libjpeg-turbo
 pkgincludedir = $(includedir)/libjpeg-turbo
 top_builddir = ..
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
-INSTALL = /usr/bin/install -c
+INSTALL = /usr/local/bin/ginstall -c
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
 install_sh_SCRIPT = $(install_sh) -c
@@ -36,8 +36,8 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-build_triplet = x86_64-unknown-linux-gnu
-host_triplet = x86_64-unknown-linux-gnu
+build_triplet = arm-apple-darwin21.6.0
+host_triplet = arm-apple-darwin21.6.0
 subdir = simd
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -71,22 +71,22 @@ am__libsimd_la_SOURCES_DIST = jsimd_arm64.c jsimd_arm64_neon.S \
 	jdsample-sse2-64.asm jfdctfst-sse2-64.asm jfdctint-sse2-64.asm \
 	jidctflt-sse2-64.asm jidctfst-sse2-64.asm jidctint-sse2-64.asm \
 	jidctred-sse2-64.asm jquantf-sse2-64.asm jquanti-sse2-64.asm
-am_libsimd_la_OBJECTS = jsimd_x86_64.lo \
-	jfdctflt-sse-64.lo \
-	jccolor-sse2-64.lo \
-	jcgray-sse2-64.lo \
-	jcsample-sse2-64.lo \
-	jdcolor-sse2-64.lo \
-	jdmerge-sse2-64.lo \
-	jdsample-sse2-64.lo \
-	jfdctfst-sse2-64.lo \
-	jfdctint-sse2-64.lo \
-	jidctflt-sse2-64.lo \
-	jidctfst-sse2-64.lo \
-	jidctint-sse2-64.lo \
-	jidctred-sse2-64.lo \
-	jquantf-sse2-64.lo \
-	jquanti-sse2-64.lo
+#am_libsimd_la_OBJECTS = jsimd_x86_64.lo \
+#	jfdctflt-sse-64.lo \
+#	jccolor-sse2-64.lo \
+#	jcgray-sse2-64.lo \
+#	jcsample-sse2-64.lo \
+#	jdcolor-sse2-64.lo \
+#	jdmerge-sse2-64.lo \
+#	jdsample-sse2-64.lo \
+#	jfdctfst-sse2-64.lo \
+#	jfdctint-sse2-64.lo \
+#	jidctflt-sse2-64.lo \
+#	jidctfst-sse2-64.lo \
+#	jidctint-sse2-64.lo \
+#	jidctred-sse2-64.lo \
+#	jquantf-sse2-64.lo \
+#	jquanti-sse2-64.lo
 #am_libsimd_la_OBJECTS = jsimd_mips.lo \
 #	jsimd_mips_dspr2.lo
 #am_libsimd_la_OBJECTS = jsimd_i386.lo \
@@ -148,16 +148,16 @@ DIST_SOURCES = $(am__libsimd_la_SOURCES_DIST)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/xing/research/ROMP/romp/missing --run aclocal-1.9
+ACLOCAL = ${SHELL} /Users/shahzeblakhani/Downloads/ROMP/romp/missing --run aclocal-1.9
 AMDEP_FALSE = #
 AMDEP_TRUE = 
-AMTAR = ${SHELL} /home/xing/research/ROMP/romp/missing --run tar
+AMTAR = ${SHELL} /Users/shahzeblakhani/Downloads/ROMP/romp/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /home/xing/research/ROMP/romp/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/xing/research/ROMP/romp/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/xing/research/ROMP/romp/missing --run automake-1.9
-AWK = gawk
-BUILD = 20151222
+AUTOCONF = ${SHELL} /Users/shahzeblakhani/Downloads/ROMP/romp/missing --run autoconf
+AUTOHEADER = ${SHELL} /Users/shahzeblakhani/Downloads/ROMP/romp/missing --run autoheader
+AUTOMAKE = ${SHELL} /Users/shahzeblakhani/Downloads/ROMP/romp/missing --run automake-1.9
+AWK = awk
+BUILD = 20230930
 CC = gcc
 CCAS = gcc
 CCASFLAGS = -g -O2
@@ -170,17 +170,17 @@ CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2
 CYGPATH_W = echo
-DEBARCH = amd64
+DEBARCH = 
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
-ECHO = echo
-ECHO_C = 
-ECHO_N = -n
+ECHO = /bin/echo
+ECHO_C = \c
+ECHO_N = 
 ECHO_T = 
-EGREP = /bin/grep -E
+EGREP = /usr/bin/grep -E
 EXEEXT = 
-F77 = 
-FFLAGS = 
+F77 = gfortran
+FFLAGS = -g -O2
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
@@ -192,19 +192,19 @@ JAVACFLAGS =
 JAVA_RPM_CONTENTS_1 = 
 JAVA_RPM_CONTENTS_2 = 
 JNI_CFLAGS = 
-JPEG_LIB_VERSION = 62
-JPEG_LIB_VERSION_DECIMAL = 6.2
+JPEG_LIB_VERSION = 80
+JPEG_LIB_VERSION_DECIMAL = 8.0
 LDFLAGS = 
 LIBOBJS = 
 LIBS = 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
-LIBTOOL_CURRENT = 63
+LIBTOOL_CURRENT = 10
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/xing/research/ROMP/romp/missing --run makeinfo
+MAKEINFO = ${SHELL} /Users/shahzeblakhani/Downloads/ROMP/romp/missing --run makeinfo
 MEM_SRCDST_FUNCTIONS = global:  jpeg_mem_dest;  jpeg_mem_src;
-NAFLAGS = -felf64 -DELF -D__x86_64__
-NASM = nasm
+NAFLAGS = 
+NASM = 
 OBJEXT = o
 PACKAGE = libjpeg-turbo
 PACKAGE_BUGREPORT = 
@@ -215,10 +215,10 @@ PACKAGE_VERSION = 1.3.90
 PATH_SEPARATOR = :
 PKGNAME = libjpeg-turbo
 RANLIB = ranlib
-RPMARCH = x86_64
+RPMARCH = 
 RPM_CONFIG_ARGS = 
 SET_MAKE = 
-SHELL = /bin/bash
+SHELL = /bin/sh
 SIMD_ARM_64_FALSE = 
 SIMD_ARM_64_TRUE = #
 SIMD_ARM_FALSE = 
@@ -227,15 +227,15 @@ SIMD_I386_FALSE =
 SIMD_I386_TRUE = #
 SIMD_MIPS_FALSE = 
 SIMD_MIPS_TRUE = #
-SIMD_X86_64_FALSE = #
-SIMD_X86_64_TRUE = 
-SO_AGE = 1
-SO_MAJOR_VERSION = 62
-SO_MINOR_VERSION = 0
+SIMD_X86_64_FALSE = 
+SIMD_X86_64_TRUE = #
+SO_AGE = 2
+SO_MAJOR_VERSION = 8
+SO_MINOR_VERSION = 2
 STRIP = strip
 VERSION = 1.3.90
 VERSION_SCRIPT_FALSE = #
-VERSION_SCRIPT_FLAG = -Wl,--version-script,
+VERSION_SCRIPT_FLAG = -Wl,-M,
 VERSION_SCRIPT_TRUE = 
 WITH_12BIT_FALSE = 
 WITH_12BIT_TRUE = #
@@ -248,18 +248,18 @@ WITH_ARITH_TRUE =
 WITH_JAVA = 0
 WITH_JAVA_FALSE = 
 WITH_JAVA_TRUE = #
-WITH_SIMD_FALSE = #
-WITH_SIMD_TRUE = 
-WITH_SSE_FLOAT_DCT_FALSE = #
-WITH_SSE_FLOAT_DCT_TRUE = 
+WITH_SIMD_FALSE = 
+WITH_SIMD_TRUE = #
+WITH_SSE_FLOAT_DCT_FALSE = 
+WITH_SSE_FLOAT_DCT_TRUE = #
 WITH_TURBOJPEG_FALSE = #
 WITH_TURBOJPEG_TRUE = 
-X86_64_FALSE = #
-X86_64_TRUE = 
+X86_64_FALSE = 
+X86_64_TRUE = #
 ac_ct_AR = @ac_ct_AR@
 ac_ct_CC = gcc
 ac_ct_CXX = g++
-ac_ct_F77 = 
+ac_ct_F77 = gfortran
 ac_ct_RANLIB = @ac_ct_RANLIB@
 ac_ct_STRIP = @ac_ct_STRIP@
 am__fastdepCC_FALSE = #
@@ -272,26 +272,26 @@ am__quote =
 am__tar = ${AMTAR} chof - "$$tardir"
 am__untar = ${AMTAR} xf -
 bindir = ${exec_prefix}/bin
-build = x86_64-unknown-linux-gnu
+build = arm-apple-darwin21.6.0
 build_alias = 
-build_cpu = x86_64
-build_os = linux-gnu
-build_vendor = unknown
+build_cpu = arm
+build_os = darwin21.6.0
+build_vendor = apple
 datadir = ${prefix}
 exec_prefix = ${prefix}
-host = x86_64-unknown-linux-gnu
+host = arm-apple-darwin21.6.0
 host_alias = 
-host_cpu = x86_64
-host_os = linux-gnu
-host_vendor = unknown
+host_cpu = arm
+host_os = darwin21.6.0
+host_vendor = apple
 includedir = ${prefix}/include
 infodir = ${prefix}/info
-install_sh = /home/xing/research/ROMP/romp/install-sh
-libdir = ${exec_prefix}/lib64
+install_sh = /Users/shahzeblakhani/Downloads/ROMP/romp/install-sh
+libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localstatedir = ${prefix}/var
 mandir = ${prefix}/man
-mkdir_p = mkdir -p --
+mkdir_p = $(install_sh) -d
 oldincludedir = /usr/include
 prefix = /opt/libjpeg-turbo
 program_transform_name = s,x,x,
@@ -324,13 +324,13 @@ EXTRA_DIST = nasm_lt.sh CMakeLists.txt \
 #	jquantf-sse2.asm   jquanti-sse2.asm
 
 #libsimd_la_SOURCES = jsimd_mips.c jsimd_mips_dspr2_asm.h jsimd_mips_dspr2.S
-libsimd_la_SOURCES = jsimd_x86_64.c jsimd.h jsimdcfg.inc.h jsimdext.inc \
-	jcolsamp.inc jdct.inc jfdctflt-sse-64.asm \
-	jccolor-sse2-64.asm   jcgray-sse2-64.asm    jcsample-sse2-64.asm \
-	jdcolor-sse2-64.asm   jdmerge-sse2-64.asm   jdsample-sse2-64.asm \
-	jfdctfst-sse2-64.asm  jfdctint-sse2-64.asm  jidctflt-sse2-64.asm \
-	jidctfst-sse2-64.asm  jidctint-sse2-64.asm  jidctred-sse2-64.asm  \
-	jquantf-sse2-64.asm   jquanti-sse2-64.asm
+#libsimd_la_SOURCES = jsimd_x86_64.c jsimd.h jsimdcfg.inc.h jsimdext.inc \
+#	jcolsamp.inc jdct.inc jfdctflt-sse-64.asm \
+#	jccolor-sse2-64.asm   jcgray-sse2-64.asm    jcsample-sse2-64.asm \
+#	jdcolor-sse2-64.asm   jdmerge-sse2-64.asm   jdsample-sse2-64.asm \
+#	jfdctfst-sse2-64.asm  jfdctint-sse2-64.asm  jidctflt-sse2-64.asm \
+#	jidctfst-sse2-64.asm  jidctint-sse2-64.asm  jidctred-sse2-64.asm  \
+#	jquantf-sse2-64.asm   jquanti-sse2-64.asm
 
 AM_CPPFLAGS = -I$(top_srcdir)
 all: $(BUILT_SOURCES)
@@ -601,10 +601,10 @@ uninstall-am: uninstall-info-am
 	uninstall-info-am
 
 
-jccolor-sse2-64.lo:  jccolext-sse2-64.asm
-jcgray-sse2-64.lo:   jcgryext-sse2-64.asm
-jdcolor-sse2-64.lo:  jdcolext-sse2-64.asm
-jdmerge-sse2-64.lo:  jdmrgext-sse2-64.asm
+#jccolor-sse2-64.lo:  jccolext-sse2-64.asm
+#jcgray-sse2-64.lo:   jcgryext-sse2-64.asm
+#jdcolor-sse2-64.lo:  jdcolext-sse2-64.asm
+#jdmerge-sse2-64.lo:  jdmrgext-sse2-64.asm
 
 #jccolor-mmx.lo:   jccolext-mmx.asm
 #jcgray.-mmx.lo:   jcgryext-mmx.asm

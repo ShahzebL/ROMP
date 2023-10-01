@@ -1,6 +1,6 @@
 /* jconfigint.h.  Generated from jconfigint.h.in by configure.  */
 /* libjpeg-turbo build number */
-#define BUILD "20151222"
+#define BUILD "20230930"
 
 /* How to obtain function inlining. */
 #define INLINE inline __attribute__((always_inline))
