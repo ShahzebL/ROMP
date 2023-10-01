@@ -18,33 +18,33 @@ def save_code_table(c, oc, i, d1, d2, table_folder):
 	# also save table as human-readable	
 	lib.index_file.write(str(i) + "\t" + str(d1) + "\t" + str(d2) + ":\t" + str(o) + "\n")
 
-        f = open(table_folder + "/plain_" + str(i)+"_"+str(d1)+"_"+str(d2)+".table", "w")
-        cc = sorted(c.iteritems(), key=operator.itemgetter(1))
-        for x in cc:
+	f = open(table_folder + "/plain_" + str(i)+"_"+str(d1)+"_"+str(d2)+".table", "w")
+	cc = sorted(c.iteritems(), key=operator.itemgetter(1))
+	for x in cc:
 		bits = c[x[0]]
 		f.write(str(bits) + ": " + str(abs(x[0])) + "\n")
 		'''
-                bits = c[x[0]]
-                num = abs(x[0])
-                size = num & 0x0f
-                run = num >> 4
-                if o:
-                        prob = str(x[1]) + " " + str(x[1]*100.0/o)
-                else:
-                        prob = "0 100"
-                if neg == -1:
-                        f.write("-")
-                elif neg == 1:
-                        f.write("+")
-                else:
-                        f.write(" ")
-                f.write(str(run) + "/" + str(size) + ": \t" + str(bits) + "\t ( " + str(prob) +"% )\n")
+				bits = c[x[0]]
+				num = abs(x[0])
+				size = num & 0x0f
+				run = num >> 4
+				if o:
+						prob = str(x[1]) + " " + str(x[1]*100.0/o)
+				else:
+						prob = "0 100"
+				if neg == -1:
+						f.write("-")
+				elif neg == 1:
+						f.write("+")
+				else:
+						f.write(" ")
+				f.write(str(run) + "/" + str(size) + ": \t" + str(bits) + "\t ( " + str(prob) +"% )\n")
 		'''
-        f.close()
+	f.close()
 	
 def create_table(comp, dep1_s, dep2_s):
 	global tab_folder
-	print "Component " + comp
+	print("Component " + comp)
 
 	AC_BITS = 10
 	table_folder = tab_folder + "/" + str(comp)	
@@ -110,11 +110,11 @@ def create_table(comp, dep1_s, dep2_s):
 		
 	files = glob.glob(in_folder + "/*.block")
 	ratio = 0
-	print "\tTraining: "
-	print "\t",
+	print("\tTraining: ")
+	print("\t",)
 	for f in files:
 		ratio += 1
-		print str(ratio*100/len(files)) + "%",
+		print(str(ratio*100/len(files)) + "%",)
 		sys.stdout.flush()
 		block = lib.get_blocks_all_in_bits(f, comp)
 		block_o = lib.get_blocks_with_dc_in_diff(f, comp)			
@@ -189,7 +189,7 @@ def create_table(comp, dep1_s, dep2_s):
 	lib.fprint("generating AC tables...")
 	max_len = -1
 	for i in range(1, 64):
-		#print i
+		#print(i
 		for p in range(SIZE1 + 1):
 			for pp in range(SIZE2 + 1):
 				co[i][p][pp], max_len_= lib.huff_encode_plus_extra_all(oc[i][p][pp], lib.code)
@@ -203,10 +203,10 @@ def create_table(comp, dep1_s, dep2_s):
 	save_code_table(co_default, oc_default, 100,100,100,table_folder)
 	lib.fprint("max length symbols: %d"%(max_len))	
 	lib.index_file.close()
-	print "\n\tTraining DONE"
+	print("\n\tTraining DONE")
 	
 if len(sys.argv) < 3:
-	print "usage: python training.py [TRAINING IMAGE FOLDER] [TABLE FOLDER]"
+	print("usage: python training.py [TRAINING IMAGE FOLDER] [TABLE FOLDER]")
 	exit()
 	
 in_folder = sys.argv[1]
@@ -226,5 +226,5 @@ for c in range(3):
 	create_table(str(c), dep1, dep2)
 	
 #if len(sys.argv) == 1:
-#	print "usage: python runsize.py size(600, 1200), component_number(0,1,2) start_learn_image(1-100), end_learn_image(1-100), end_test_image(1-100), dep. 1(0:DC, 1:avg_pre_coef, 2:avg_pre_block_coef, 3:pre_block_coef, r:last_block_eob, 5:pre_blocks_sign), dep. 2(0:DC, 1:avg_pre_coef, 2:avg_pre_block_coef, 3:pre_block_coef, 4:last_block_eob, 5:pre_blocks_sign)"
+#	print("usage: python runsize.py size(600, 1200), component_number(0,1,2) start_learn_image(1-100), end_learn_image(1-100), end_test_image(1-100), dep. 1(0:DC, 1:avg_pre_coef, 2:avg_pre_block_coef, 3:pre_block_coef, r:last_block_eob, 5:pre_blocks_sign), dep. 2(0:DC, 1:avg_pre_coef, 2:avg_pre_block_coef, 3:pre_block_coef, 4:last_block_eob, 5:pre_blocks_sign)"
 #	exit()	

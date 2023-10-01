@@ -76,9 +76,9 @@ def generate_bits(vals, bits):
 			now += 1
 	for x in range(255):
 		if x in ret:
-			print ret[x],",",
+			print(ret[x],",",)
 		else:
-			print -1,",",
+			print(-1,",",)
 	return ret	
 
 def get_luminance_codes():
@@ -125,7 +125,7 @@ def get_jpeg_bits_detail_all_positive(coefs, st, en, code, luminance):
 
 def print_prefix(pre_n, pre):
 	for i in range(pre_n):
-		print pre[i],
+		print(pre[i],)
 
 def print_prefix_to_file(pre_n, pre, f):
 	for i in range(pre_n-1):
@@ -179,7 +179,7 @@ def get_jpeg_bits(coefs, st, en, code, run_length_only):
 		if (en == 62 and r > 0):
 			b += code[0]
 #	print_prefix(en + 1, coefs)
-#	print b
+#	print(b
 	return b, coef_bits
 
 def get_jpeg_bits_all_positive(coefs, st, en, code, run_length_only):
@@ -209,7 +209,7 @@ def get_jpeg_bits_all_positive(coefs, st, en, code, run_length_only):
 		if (en == 62 and r > 0):
 			b += code[0]
 #	print_prefix(en + 1, coefs)
-#	print b
+#	print(b
 	return b, coef_bits, saving
 	
 
@@ -261,7 +261,7 @@ def get_blocks_with_dc_in_diff_with_threshold(filename, comp):   # the first DC 
 				for j in range(1, len(s)):
 					if j==1:
 						ii.append(get_bits(abs((int(s[j]) >> 1) - last_dc)))
-						print get_bits(abs((int(s[j]) >> 1) - last_dc)), get_bits(abs(int(s[j]) - last_dc_t))
+						print(get_bits(abs((int(s[j]) >> 1) - last_dc)), get_bits(abs(int(s[j]) - last_dc_t)))
 						last_dc = (int(s[j]) >> 1)
 						last_dc_t = int(s[j])
 					else:
@@ -333,7 +333,7 @@ def get_blocks_difference_all_in_bits(filename, comp):   # same to above functio
 						last_dc = int(s[j])
 					else:
 						if int(last_block[j]) != int(s[j]) and int(last_block[j])*int(s[j])>0:#abs(int(last_block[j])) > 3:						
-							print int(last_block[j]), int(s[j]), abs(int(s[j]) - int(last_block[j]))
+							print(int(last_block[j]), int(s[j]), abs(int(s[j]) - int(last_block[j])))
 							ii.append(get_bits(abs(int(s[j]) - int(last_block[j]))))
 						else:
 							ii.append(get_bits(abs(int(s[j]))))
@@ -509,7 +509,7 @@ def huff_encode_plus_extra_better_DC(symb2freq, jpeg_code):
 	for p in temp:
 		ret[p[0]] = len(p[1])
 		if (ret[p[0]] > 32):
-			print "!"
+			print("!")
 	return ret
 
 def huff_encode_plus_extra_ac_sign(symb2freq, jpeg_code):
@@ -593,7 +593,7 @@ def huff_encode_plus_extra_all(symb2freq, jpeg_code):
 	for p in temp:
 		ret[p[0]] = len(p[1])
 		if (ret[p[0]] > 32):
-			print "!", ret[p[0]]
+			print("!", ret[p[0]])
 		if ret[p[0]]>max_len:
 			max_len = ret[p[0]]
 	return ret, max_len
@@ -819,7 +819,7 @@ def get_dep(blocks, blocks_o, now, s, e, dep, one_or_two, b_mcu1, b_mcu2):
 #			return 21
 		if not ma:
 			if blocks[now][0] > 11:
-				print "DC out of range", blocks[now]
+				print("DC out of range", blocks[now])
 			return len(papc_bins[1]) + blocks[now][0] - 5
 		return scale_block(su*1.0/ma, s)
 	if dep == 6:
@@ -938,7 +938,7 @@ def get_previous_blocks_coef(blocks, now, s, e):
 	sign = 0
 	n = 0
 	pos = -1
-	#print "now:", now
+	#print("now:", now
 	seen = True
 	#for x in range(now - 1, now - look_backward_block - 1, -1):
 	for x in range(now - 1, max(0, now - look_backward_block) - 1, -1):
@@ -963,7 +963,7 @@ def get_previous_blocks_coef_for_DC(blocks, now):
 	sign = 0
 	n = 0
 	pos = -1
-	#print "now:", now
+	#print("now:", now
 	seen = True
 	for x in range(now - 1, max(0, now - look_backward_block) - 1, -1):
 		#if blocks[x+1][0] > 5:
@@ -991,7 +991,7 @@ def get_previous_blocks_coef(blocks, now, s, e):
 	sign = 0
 	n = 0
 	pos = -1
-	#print "now:", now
+	#print("now:", now
 	seen = False 
 	for x in range(now - 1, max(0, now - look_backward_block) - 1, -1):
 		if blocks[x+1][0] > 5:
@@ -1014,7 +1014,7 @@ def record_code(b, b_o, now, c, start, end, oc, b_mcu1, b_mcu2):
 	if d1<len(oc[start]) and d2<len(oc[start][d1]):
 		oc[start][d1][d2][c] += 1
 	else:
-		print "*", d1, d2
+		print("*", d1, d2)
 		wrong_keys += 1
 	return start, d1, d2, c
 
@@ -1071,12 +1071,12 @@ def parse_dep(s, apc_bins):
 
 def fprint(string):
 	global index_file
-	print string
+	print(string)
 	index_file.write(string + "\n")
 
 def fprint_(string):
 	global index_file
-	print string
+	print(string)
 	index_file.write(string)	
 	
 def fprint_close():
@@ -1233,7 +1233,7 @@ def get_avg_coef_bins(folder, comp, dep1, dep2):
 		tail = SIZE1
 		while True:
 			a = tc[now]
-			#print a,
+			#print(a,
 			if a<tt/20.0 or tt==0:
 				merged = tc[now] + tc[now+1]
 				tc[now] = deepcopy(merged)
@@ -1273,7 +1273,7 @@ def get_avg_coef_bins(folder, comp, dep1, dep2):
 		tail = SIZE1
 		while True:
 			a = tc[now]
-			#print a,
+			#print(a,
 			if a<tt/20.0 or tt == 0:
 				merged = tc[now] + tc[now+1]
 				tc[now] = deepcopy(merged)
@@ -1296,10 +1296,10 @@ def get_avg_coef_bins(folder, comp, dep1, dep2):
 		if tt == []:
 			tt.append(0.0)
 		if (len(tt) > 20):
-			print "*", tt
-			print s
-			print tc
-			print oc[i]
+			print("*", tt)
+			print(s)
+			print(tc)
+			print(oc[i])
 		for ii in range(20 - len(tt)):
 			tt.append(tt[len(tt) - 1])
 		sep_2[i] = tt
@@ -1312,7 +1312,7 @@ def get_max_pos_value_func(image_folder, comp):
 		ret = pickle.load(pkl_file)
 		pkl_file.close()
 	else:
-		print "regenerating max_pos_values..."
+		print("regenerating max_pos_values...")
 		ret = get_max_pos_value(image_folder, comp)
 		pkl_file = open(image_folder + "/max_pos_value_" + comp, 'wb')
 		pickle.dump(ret, pkl_file)
@@ -1334,14 +1334,14 @@ def init(comp, image_folder, tbl_folder, dep1, dep2):
 			avg_coef = pickle.load(pkl_file)
 			pkl_file.close()
 		else:
-			print "regenerating max_pos_values..."
+			print("regenerating max_pos_values...")
 			avg_coef = get_max_pos_value(image_folder, comp)
 			pkl_file = open(image_folder + "/max_pos_value_" + comp, 'wb')
 			pickle.dump(avg_coef, pkl_file)
 			pkl_file.close()
 		f = open(tbl_folder + "/plain_max_pos_value_" + comp, 'wb')
 		for x in avg_coef:
-			f.write(str(x) + ": " + str(avg_coef[x]) + "\n")
+			f.write(str(x) + ": " + str(avg_coef[x]) + "\n").encode('utf-8')
 		f.close()
 		avg_coef_max = [0]*64
 		for i in range(1, 64):
@@ -1349,7 +1349,7 @@ def init(comp, image_folder, tbl_folder, dep1, dep2):
 			for j in range(1, i+1):
 				tt += avg_coef[j]
 			avg_coef_max[i] = tt
-		print avg_coef_max
+		print(avg_coef_max)
 		os.system("cp " + image_folder + "/*max_pos_value_" + comp + " " + tbl_folder + "/")
 
 		dep2_ = dep2
@@ -1364,7 +1364,7 @@ def init(comp, image_folder, tbl_folder, dep1, dep2):
 			papc_bins = pickle.load(pkl_file)
 			pkl_file.close()
 		else:
-			print "regenerating coef_bins..."
+			print("regenerating coef_bins...")
 			apc_bins, papc_bins = get_avg_coef_bins(image_folder, comp, dep1, dep2_)
 			pkl_file = open(image_folder + "/coef_bins_" + str(dep1) + "_" + comp, 'wb')
 			pickle.dump(apc_bins, pkl_file)
@@ -1417,7 +1417,7 @@ def init_testing(comp, tbl_folder, dep1, dep2):
 			pkl_file.close()
 		
 		else:
-			print "no max_pos_values..."
+			print("no max_pos_values...")
 			exit()
 		avg_coef_max = [0]*64
 		for i in range(1, 64):
@@ -1435,7 +1435,7 @@ def init_testing(comp, tbl_folder, dep1, dep2):
 			apc_bins = pickle.load(pkl_file)
 			pkl_file.close()
 		else:
-			print "no coef_bins..."
+			print("no coef_bins...")
 			exit()
 
 		if os.path.isfile(tbl_folder + "/coef_bins_" +  str(dep2_) + "_" + comp):
@@ -1443,7 +1443,7 @@ def init_testing(comp, tbl_folder, dep1, dep2):
 			papc_bins = pickle.load(pkl_file)
 			pkl_file.close()
 		else:
-			print "no coef_bins_p..."
+			print("no coef_bins_p...")
 			exit()
 
 	if comp == "0":
@@ -1463,7 +1463,7 @@ def bin_separator(bins, s, final_bin_number, total_samples):
 	
 	while True:
 		a = bins[now]
-		#print a,
+		#print(a,
 		if a<total_samples*1.0/final_bin_number:
 			merged = bins[now] + bins[now+1]
 			bins[now] = deepcopy(merged)
