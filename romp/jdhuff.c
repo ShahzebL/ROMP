@@ -456,11 +456,11 @@ void initialize_DC_table(int c, int i, int private_option)
 	char filename[200];
 	int table_size = 25;
 	sprintf(filename, "%s/%d/plain_DC_%d_.table", table_folder, c, i);
+  printf("%s", filename);
 	FILE * f = fopen(filename, "r");
 	if (f == NULL) {
 		sprintf(filename, "%s/%d/plain_DC_%d_.table", table_folder, c, 100);
 		f = fopen(filename, "r");
-
 		if (f==NULL) {
 			printf("dc still null\n");
 			return;
